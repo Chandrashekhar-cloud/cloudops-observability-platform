@@ -125,7 +125,7 @@ The platform collects application and system metrics, visualizes them through Gr
 
 ### Grafana Dashboard
 
-![Grafana Dashboard](docs/grafana-dashboard.png)
+![Grafana Dashboard](docs/grafana-dashboard-final.png)
 
 ### Alertmanager
 
