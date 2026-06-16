@@ -1,14 +1,16 @@
 # CloudOps Observability Platform
 
-A containerized observability platform built using Prometheus, Grafana, Loki, Promtail, Alertmanager, and Node Exporter to monitor and analyze a Flask application.
+A containerized observability platform built using Prometheus, Grafana, Loki, Promtail, Alertmanager, and Node Exporter to monitor, visualize, log, and alert on a Flask application.
 
 ---
 
 ## Project Overview
 
-This project demonstrates a complete monitoring and logging stack for a containerized application.
+This project demonstrates a complete observability stack for a containerized application.
 
-The platform collects application and system metrics, visualizes them through Grafana dashboards, centralizes logs using Loki, and manages alerts using Prometheus Alertmanager.
+The platform monitors application availability and infrastructure metrics, aggregates logs, visualizes system health through Grafana dashboards, and manages alerts using Prometheus and Alertmanager.
+
+The entire stack is containerized using Docker Compose and follows modern observability practices.
 
 ---
 
@@ -26,13 +28,13 @@ The platform collects application and system metrics, visualizes them through Gr
 
 +------------------+          +------------------+
 |   Prometheus     |          |    Promtail      |
-| Metrics Scraping |          |  Log Collection  |
+| Monitoring       |          | Log Collection   |
 +--------+---------+          +--------+---------+
          |                             |
          v                             v
 
 +------------------+          +------------------+
-|   Alertmanager   |          |      Loki        |
+|  Alertmanager    |          |      Loki        |
 | Alert Handling   |          | Centralized Logs |
 +------------------+          +--------+---------+
                                        |
@@ -55,23 +57,24 @@ The platform collects application and system metrics, visualizes them through Gr
 
 ### Monitoring
 
-- Application metrics collection using Prometheus
+- Application availability monitoring using Prometheus
 - Infrastructure monitoring using Node Exporter
 - Target health monitoring
-- Custom alert rules
+- Custom Prometheus alert rules
+- Real-time metrics visualization
 
 ### Logging
 
 - Centralized log aggregation using Loki
-- Log collection through Promtail
-- Log exploration inside Grafana
+- Log collection using Promtail
+- Log exploration and filtering through Grafana
 
 ### Visualization
 
 - Grafana dashboards for:
-  - Flask application status
-  - Node Exporter status
-  - CPU usage monitoring
+  - Flask Application Status
+  - Node Exporter Status
+  - CPU Usage Monitoring
 
 ### Alerting
 
@@ -79,20 +82,27 @@ The platform collects application and system metrics, visualizes them through Gr
 - Alertmanager integration
 - Application availability monitoring
 
+### Infrastructure Enhancements
+
+- Docker named volumes for persistent storage
+- Dedicated Docker monitoring network
+- Environment variable based Grafana configuration
+- Multi-container orchestration using Docker Compose
+
 ---
 
 ## Technology Stack
 
 | Component | Purpose |
-|------------|----------|
+|-----------|---------|
 | Flask | Sample Application |
 | Docker Compose | Container Orchestration |
-| Prometheus | Metrics Collection |
+| Prometheus | Monitoring & Alerting |
 | Grafana | Visualization |
 | Loki | Log Aggregation |
 | Promtail | Log Collection |
 | Alertmanager | Alert Management |
-| Node Exporter | System Metrics |
+| Node Exporter | Infrastructure Monitoring |
 
 ---
 
@@ -100,7 +110,7 @@ The platform collects application and system metrics, visualizes them through Gr
 
 | Service | Port |
 |----------|------|
-| Flask App | 5000 |
+| Flask Application | 5000 |
 | Prometheus | 9090 |
 | Grafana | 3000 |
 | Alertmanager | 9093 |
@@ -135,26 +145,26 @@ The platform collects application and system metrics, visualizes them through Gr
 
 ## Running the Project
 
-Clone the repository:
+### Clone Repository
 
 ```bash
 git clone https://github.com/Chandrashekhar-cloud/cloudops-observability-platform.git
 cd cloudops-observability-platform
 ```
 
-Start all services:
+### Start Services
 
 ```bash
 docker compose up -d
 ```
 
-Verify running containers:
+### Verify Running Containers
 
 ```bash
 docker ps
 ```
 
-Stop all services:
+### Stop Services
 
 ```bash
 docker compose down
@@ -162,54 +172,13 @@ docker compose down
 
 ---
 
-## Implemented Monitoring
+## Infrastructure Improvements
 
-### Flask Application Monitoring
-
-Prometheus scrapes metrics exposed by the Flask application and tracks application availability.
-
-### Infrastructure Monitoring
-
-Node Exporter provides CPU and system-level metrics that are visualized through Grafana dashboards.
-
-### Log Monitoring
-
-Promtail collects log files and forwards them to Loki for centralized storage and querying.
-
-### Alerting
-
-Prometheus evaluates alert rules and forwards triggered alerts to Alertmanager.
-
----
-
-## Repository Structure
-
-```text
-cloudops-observability-platform/
-│
-├── app/
-├── prometheus/
-│   ├── prometheus.yml
-│   └── alert_rules.yml
-│
-├── alertmanager/
-│   └── alertmanager.yml
-│
-├── loki/
-│   └── loki-config.yml
-│
-├── promtail/
-│   └── promtail-config.yml
-│
-├── docs/
-│   ├── docker-containers.png
-│   ├── prometheus-targets.png
-│   ├── prometheus-rules.png
-│   ├── grafana-dashboard.png
-│   └── alertmanager-ui.png
-│
-└── docker-compose.yml
-```
+- Docker named volumes for persistent Prometheus, Grafana, and Loki data
+- Dedicated Docker bridge network for service communication
+- Environment-variable based Grafana configuration
+- Centralized log aggregation using Loki and Promtail
+- Containerized deployment using Docker Compose
 
 ---
 
@@ -217,12 +186,27 @@ cloudops-observability-platform/
 
 Through this project, I gained hands-on experience with:
 
-- Containerized monitoring stacks
-- Metrics collection and visualization
-- Log aggregation and analysis
-- Alert configuration and management
-- Docker Compose orchestration
-- Observability fundamentals
+- Prometheus Monitoring
+- Grafana Dashboard Creation
+- Loki Log Aggregation
+- Promtail Log Shipping
+- Alertmanager Configuration
+- Docker Networking
+- Docker Volumes
+- Container Orchestration
+- Infrastructure Observability
+- Metrics and Log Analysis
+
+---
+
+## Future Enhancements
+
+- Email Alert Notifications
+- Slack Alert Integration
+- Container Metrics using cAdvisor
+- Grafana Dashboard Provisioning
+- Kubernetes Deployment
+- CI/CD Integration
 
 ---
 
@@ -231,3 +215,5 @@ Through this project, I gained hands-on experience with:
 **Chandrashekhar H S**
 
 Aspiring DevOps / SRE Engineer
+
+GitHub: https://github.com/Chandrashekhar-cloud
