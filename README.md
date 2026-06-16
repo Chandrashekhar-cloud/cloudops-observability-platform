@@ -155,6 +155,26 @@ The entire solution is deployed using Docker Compose.
 
 ![Alertmanager](docs/alertmanager-ui.png)
 
+## Alert Validation Evidence
+
+The alerting pipeline was validated by intentionally stopping the Flask application container.
+
+### Prometheus Target Down
+
+![Target Down](docs/evidence/alert-test-target-down.png)
+
+### Alert Rule Triggered
+
+![Alert Pending](docs/evidence/alert-test-pending.png)
+
+### Alertmanager Received Alert
+
+![Alertmanager Alert](docs/evidence/alertmanager-alert-received.png)
+
+This test verified the complete alert flow:
+
+Flask Application Failure → Prometheus Detection → Alert Rule Evaluation → Alertmanager Notification
+
 ---
 
 ## Running the Project
