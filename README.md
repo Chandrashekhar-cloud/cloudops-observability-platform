@@ -1,6 +1,23 @@
 # CloudOps Observability Platform
 
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-Dashboards-F46800?logo=grafana&logoColor=white)
+![Loki](https://img.shields.io/badge/Loki-Logging-0A0A0A)
+![Alertmanager](https://img.shields.io/badge/Alertmanager-Alerts-E6522C)
+![Node Exporter](https://img.shields.io/badge/Node_Exporter-System_Metrics-success)
+![Status](https://img.shields.io/badge/Status-Complete-success)
+
 A containerized observability platform built using Prometheus, Grafana, Loki, Promtail, Alertmanager, and Node Exporter to monitor, visualize, log, and alert on a Flask application.
+
+## Key Highlights
+
+- 📊 Application and infrastructure monitoring with Prometheus
+- 📈 Grafana dashboards for real-time observability
+- 📜 Centralized log aggregation using Loki and Promtail
+- 🚨 Alerting with Prometheus Alert Rules and Alertmanager
+- 🐳 Fully containerized deployment using Docker Compose
+- 🔍 Monitoring of Flask application and host system metrics
 
 ---
 
