@@ -5,3 +5,5 @@ venv/
 grafana-data/
 prometheus-data/
 loki-data/
+.env
+.env

@@ -1,3 +1,12 @@
+volumes:
+  prometheus_data:
+  grafana_data:
+  loki_data:
+
+networks:
+  monitoring:
+    driver: bridge
+
 services:
 
   flask-app:
@@ -5,6 +14,8 @@ services:
     container_name: flask-app
     ports:
       - "5000:5000"
+    networks:
+      - monitoring
 
   prometheus:
     image: prom/prometheus:v2.53.0
@@ -14,8 +25,11 @@ services:
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus/alert_rules.yml:/etc/prometheus/alert_rules.yml
+      - prometheus_data:/prometheus
     depends_on:
       - flask-app
+    networks:
+      - monitoring
 
   alertmanager:
     image: prom/alertmanager:v0.27.0
@@ -26,12 +40,16 @@ services:
       - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
+    networks:
+      - monitoring
 
   node-exporter:
     image: prom/node-exporter:v1.8.1
     container_name: node-exporter
     ports:
       - "9100:9100"
+    networks:
+      - monitoring
 
   loki:
     image: grafana/loki:2.9.8
@@ -40,7 +58,10 @@ services:
       - "3100:3100"
     volumes:
       - ./loki/loki-config.yml:/etc/loki/local-config.yaml
+      - loki_data:/loki
     command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - monitoring
 
   promtail:
     image: grafana/promtail:2.9.8
@@ -51,14 +72,20 @@ services:
     command: -config.file=/etc/promtail/config.yml
     depends_on:
       - loki
+    networks:
+      - monitoring
 
   grafana:
     image: grafana/grafana:11.1.0
     container_name: grafana
     ports:
       - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
     environment:
-      - GF_SECURITY_ADMIN_USER=chandrashekhar
-      - GF_SECURITY_ADMIN_PASSWORD=CloudOps@2026
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
     depends_on:
       - prometheus
+    networks:
+      - monitoring
