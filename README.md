@@ -135,7 +135,7 @@ The entire stack is containerized using Docker Compose and follows modern observ
 
 ### Grafana Dashboard
 
-![Grafana Dashboard](docs/grafana-dashboard-final.png)
+![Grafana Dashboard](docs/grafana-dashboard1.png)
 
 ### Alertmanager
 
