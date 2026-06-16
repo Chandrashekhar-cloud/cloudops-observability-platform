@@ -123,7 +123,7 @@ The entire stack is containerized using Docker Compose and follows modern observ
 
 ### Docker Containers
 
-![Docker Containers](docs/docker-containers.png)
+![Docker Containers](docs/docker-containers1.png)
 
 ### Prometheus Targets
 
