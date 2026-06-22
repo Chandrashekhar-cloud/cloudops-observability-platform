@@ -32,39 +32,34 @@ The platform collects application and infrastructure metrics using Prometheus an
 
 The entire solution is deployed using Docker Compose and successfully validated on AWS EC2.
 
----
-
 ## Architecture
-                          AWS EC2 Instance
-┌─────────────────────────────────────────────────────┐
-│                                                     │
-│  ┌─────────────┐                                    │
-│  │  Flask App  │                                    │
-│  └──────┬──────┘                                    │
-│         │                                           │
-│         ▼                                           │
-│  ┌─────────────┐       ┌─────────────┐              │
-│  │ Prometheus  │◄──────┤Node Exporter│              │
-│  └──────┬──────┘       └─────────────┘              │
-│         │                                           │
-│         ▼                                           │
-│  ┌─────────────┐                                    │
-│  │Alertmanager │                                    │
-│  └─────────────┘                                    │
-│                                                     │
-│  ┌─────────────┐       ┌─────────────┐              │
-│  │  Promtail   │──────►│    Loki     │              │
-│  └─────────────┘       └──────┬──────┘              │
-│                               │                     │
-│                               ▼                     │
-│                       ┌─────────────┐               │
-│                       │   Grafana   │               │
-│                       │ Dashboards  │               │
-│                       │ Logs & Alerts│              │
-│                       └─────────────┘               │
-│                                                     │
-└─────────────────────────────────────────────────────┘
----
+
+```text
+AWS EC2 (Ubuntu 24.04)
+│
+├── Flask Application
+│
+├── Prometheus
+│   ├── Scrapes Flask Metrics
+│   └── Scrapes Node Exporter Metrics
+│
+├── Node Exporter
+│   └── System Metrics (CPU, Memory, Disk)
+│
+├── Alertmanager
+│   └── Receives Alerts from Prometheus
+│
+├── Promtail
+│   └── Collects Application & System Logs
+│
+├── Loki
+│   └── Stores and Indexes Logs
+│
+└── Grafana
+    ├── Prometheus Dashboards
+    ├── Loki Logs
+    └── Alert Visualization
+```
 
 ## Features
 
