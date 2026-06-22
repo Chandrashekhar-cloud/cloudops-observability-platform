@@ -7,7 +7,7 @@
 ![Alertmanager](https://img.shields.io/badge/Alertmanager-Alerts-E6522C)
 ![Node Exporter](https://img.shields.io/badge/Node_Exporter-System_Metrics-success)
 ![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Complete-success)
+![Status](https://img.shields.io/badge/Status-Deployed-success)
 
 A containerized observability platform built using Prometheus, Grafana, Loki, Promtail, Alertmanager, and Node Exporter to monitor, visualize, log, and alert on a Flask application. The complete monitoring stack is deployed and validated on AWS EC2 using Docker Compose.
 
@@ -30,7 +30,7 @@ This project demonstrates an end-to-end observability stack for a containerized 
 
 The platform collects application and infrastructure metrics using Prometheus and Node Exporter, aggregates logs using Loki and Promtail, visualizes metrics and logs through Grafana dashboards, and manages alerts using Prometheus Alertmanager.
 
-The entire solution is deployed using Docker Compose.
+The entire solution is deployed using Docker Compose and successfully validated on AWS EC2.
 
 ---
 
@@ -116,6 +116,7 @@ The entire solution is deployed using Docker Compose.
 | Promtail | Log Collection |
 | Alertmanager | Alert Management |
 | Node Exporter | Infrastructure Metrics |
+| AWS EC2 | Cloud Deployment Platform |
 
 ---
 
