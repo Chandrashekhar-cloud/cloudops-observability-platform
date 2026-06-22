@@ -295,6 +295,60 @@ Through this project, I gained hands-on experience with:
 
 ---
 
+## AWS Deployment
+
+This project was successfully deployed and validated on an AWS EC2 (Ubuntu 24.04 LTS) instance using Docker Compose.
+
+### Deployment Environment
+
+| Component | Details |
+|------------|---------|
+| Cloud Provider | AWS EC2 |
+| Operating System | Ubuntu 24.04 LTS |
+| Container Runtime | Docker |
+| Orchestration | Docker Compose |
+
+### AWS Deployment Validation
+
+The following services were successfully deployed and verified on AWS:
+
+| Service | Port | Status |
+|----------|------|---------|
+| Flask Application | 5000 | Running |
+| Prometheus | 9090 | Running |
+| Grafana | 3000 | Running |
+| Alertmanager | 9093 | Running |
+| Loki | 3100 | Running |
+| Node Exporter | 9100 | Running |
+
+### AWS EC2 Instance
+
+![AWS EC2 Instance](docs/aws-ec2-instance.png)
+
+### AWS Grafana Dashboard
+
+![AWS Grafana Dashboard](docs/aws-grafana-dashboard.png)
+
+### AWS Prometheus Targets
+
+![AWS Prometheus Targets](docs/aws-prometheus-targets.png)
+
+### AWS Flask Application
+
+![AWS Flask Application](docs/aws-flask-app.png)
+
+### Deployment Verification
+
+The observability platform was validated on AWS by:
+
+- Verifying all Docker containers were running successfully
+- Confirming Prometheus target discovery and health status
+- Monitoring application and infrastructure metrics through Grafana dashboards
+- Validating Alertmanager integration and alert processing
+- Confirming Flask application availability through the public EC2 endpoint
+
+---
+
 ## Future Enhancements
 
 - Email Alert Notifications
