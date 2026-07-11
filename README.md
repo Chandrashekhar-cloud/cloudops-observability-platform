@@ -354,7 +354,7 @@ The observability platform was validated on AWS by:
 
 ## Author
 
-**Chandrashekhar H S**
+**Chandrashekhar H S** 
 
 Aspiring DevOps / SRE Engineer
 
