@@ -1,4 +1,4 @@
-# CloudOps Observability Platform
+# CloudOps Observability Platform 
 
 ![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?logo=prometheus&logoColor=white)
